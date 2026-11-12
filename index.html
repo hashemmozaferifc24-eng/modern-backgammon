@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تخته نرد مدرن ایران</title>
+<style>
+body {
+  background: #17251f;
+  color: white;
+  font-family: Tahoma;
+  text-align: center;
+  padding: 15px;
+}
+h1 { color: #e9c477; }
+.board {
+  background: #a96d3c;
+  border: 10px solid #633b22;
+  border-radius: 15px;
+  padding: 20px 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 7px;
+  max-width: 500px;
+  margin: 25px auto;
+}
+.point {
+  height: 130px;
+  background: #e2b77c;
+  border: 2px solid #633b22;
+  border-radius: 5px;
+  color: #222;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  background: #d6ad59;
+  color: #17251f;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>🎲 تخته نرد مدرن ایران</h1>
+<p>به باشگاه آنلاین تخته نرد خوش آمدید</p>
+
+<div class="board" id="board"></div>
+
+<h2 id="dice">تاس: -</h2>
+<button onclick="rollDice()">ریختن تاس</button>
+
+<script>
+const board = document.getElementById("board");
+
+for(let i=0; i<24; i++){
+  let point = document.createElement("div");
+  point.className = "point";
+  point.innerText = i+1;
+  board.appendChild(point);
+}
+
+function rollDice(){
+  let a = Math.floor(Math.random()*6)+1;
+  let b = Math.floor(Math.random()*6)+1;
+  document.getElementById("dice").innerText =
+  "تاس: "+a+" و "+b;
+}
+</script>
+
+</body>
+</html>
